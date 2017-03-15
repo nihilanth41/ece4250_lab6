@@ -48,9 +48,10 @@ AN2 <= Anode(2);
 AN3 <= Anode(3);
 
 segment_dp <= '1';
-
-TrafficLight:	traffic_light port map (_________________________________);	--clk is 50 MHz
-LEDDisplay0: 	LEDDisplay  port map (___________________________________________________________);
-ANDisplay:	AnodeControl port map (____________________________);
+-- named association: component name => entity name
+TrafficLight:	traffic_light port map (clk => clk, PB => PB, Ga => Ga, Ya => Ya, Ra => Ra, WALK => WALK, NOWALK => NOWALK);	--clk is 50 MHz
+-- These all have the same name so we use positional association
+LEDDisplay0: 	LEDDisplay  port map (Ga, Ya, Ra, WALK, NOWALK, counter, segment_a, segment_b, segment_c, segment_d, segment_e, segment_f, segment_g, segment_dp)
+  ANDisplay:	AnodeControl port map (clk, counter, Anode);
 
 end Behavioral;
