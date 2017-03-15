@@ -29,7 +29,7 @@ signal hex_digit1:	std_logic_vector (3 downto 0);
 signal hex_digit2: std_logic_vector (3 downto 0);
 
 begin
-process (_______________)	-- Fill in the sensitivity list
+process (WALK, NOWALK)	-- Fill in the sensitivity list
 begin
 	if (WALK='1' and NOWALK='0') then
 		hex_digit1 <= "0000";
@@ -40,7 +40,7 @@ begin
 	end if;
 end process;
 
-process (______________)	-- Fill in the sensitivity list
+process (Ga, Ya, Ra)	-- Fill in the sensitivity list
 begin
 	if (Ga='1' and Ya='0' and Ra='0') then
 		hex_digit2 <= "0010";
